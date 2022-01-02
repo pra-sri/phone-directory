@@ -3,30 +3,30 @@ import Header from "./Header";
 import './App.css';
 
 class App extends Component {
-
+ 
   render() {
-    
-  let subscribers = [
-    {
-      id:1,
-      name : "Govind",
-      phone : "1081081081"
-    },
-    {
-      id:2,
-      name : "Krishna",
-      phone : "7898765403"
-    },
-    {
-      id:3,
-      name : "Murari",
-      phone : "9812095689"
-    }
 
-  ]
+    let subscribers = [
+      {
+        id: 1,
+        name: "Govind",
+        phone: "1081081081"
+      },
+      {
+        id: 2,
+        name: "Krishna",
+        phone: "7898765403"
+      },
+      {
+        id: 3,
+        name: "Murari",
+        phone: "9812095689"
+      }
+
+    ]
     return (
       <div>
-        <Header heading="Phone Directory"/>
+        <Header heading="Phone Directory" />
         <div className="component-body-container">
           <button className="custom-btn add-btn">Add</button>
 
@@ -36,14 +36,17 @@ class App extends Component {
           </div>
 
           {
-            subscribers.map( sub => {
+            subscribers.map(sub => {
               return <div className="grid-container" key={sub.id}>
-              <span className="grid-item ">{sub.name}</span>
-              <span className="grid-item ">{sub.phone}</span>
-              <span className="grid-item action-btn-container">
-                  <button className="custom-btn delete-btn">Delete</button>
+                <span className="grid-item ">{sub.name}</span>
+                <span className="grid-item ">{sub.phone}</span>
+                <span className="grid-item action-btn-container">
+                  <button className="custom-btn delete-btn"
+                  >
+                    Delete
+                  </button>
                 </span>
-            </div>
+              </div>
             })
           }
 
@@ -52,7 +55,7 @@ class App extends Component {
 
 
         </div>
-        </div>
+      </div>
 
 
     );
