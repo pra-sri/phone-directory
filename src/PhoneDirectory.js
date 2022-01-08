@@ -1,23 +1,26 @@
 import React, { Component } from "react";
 import AddSubscriber from "./AddSubscriber";
-import ShowSubscriber from "./ShowSubscribers";
+import ShowSubscribers from "./ShowSubscribers";
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+
+
 class PhoneDirectory extends Component {
 
     constructor() {
         super();
         this.state = {
             subscriberList: [{
-                id:1,
-                name:'abcd',
+                id: 1,
+                name: 'abcd',
                 phone: '889876677887'
             },
             {
-                id : 2,
-                name : 'efgh',
-                phone : '1234567890'
+                id: 2,
+                name: 'efgh',
+                phone: '1234567890'
 
             }
-        ]
+            ]
         }
     }
 
@@ -31,14 +34,20 @@ class PhoneDirectory extends Component {
         }
 
         subscriberList.push(newSubscriber);
-        this.setState( {subscriberList: subscriberList});
-        console.log(this.state.subscriberList);
+        this.setState({ subscriberList: subscriberList });
     }
 
     render() {
         return (
-            // <AddSubscriber addSubscriberHandler={this.addSubscriberHandler}/>
-            <ShowSubscriber subscriberList={this.state.subscriberList}/>
+
+            <Router>
+                <div>
+                <Routes >
+                    <Route exact  path='/' element ={<ShowSubscribers subscriberList={this.state.subscriberList} />} />
+                    <Route exact path='/add' element ={<AddSubscriber addSubscriberHandler={this.addSubscriberHandler} />} />
+                </Routes>
+                </div>
+            </Router>
         )
     }
 
